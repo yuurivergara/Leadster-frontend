@@ -1,5 +1,19 @@
+:root{
+--columbia-blue: #ADC8D3ff;
+--seasalt: #F7F9FBff;
+--alice-blue: #E8EDF2ff;
+--dodger-blue: #148CFEff;
+--steel-blue: #3181D1ff;
+--antiflash-white: #F4F6F7ff;
+--platinum: #D7DADDff;
+--buff: #DE9F75ff;
+--alice-blue-2: #F0F9FE;
+--white: #FEFEFEff;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  max-width: 100vw;
 }

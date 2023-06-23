@@ -2,29 +2,22 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import { styled } from 'styled-components'
+import { FirstSection } from '@/components/first-section'
+import { ThirdSection } from '@/components/third-section'
+import { SecondSection } from '@/components/second-section'
 
 const PageWrapper = styled.main`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100vh;
   width: 100%;
   `
-const FirstSection = styled.div`
-  display: flex;
-  height: 400px;
-  background-color: azure;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-`
 
 export default function Home() {
   return (
     <PageWrapper>
-      <FirstSection>
-        <p>OLAAAA</p>
-      </FirstSection>
+      <FirstSection />
+      <SecondSection />
+      <ThirdSection />
     </PageWrapper>
   )
 }

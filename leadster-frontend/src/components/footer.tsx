@@ -7,7 +7,7 @@ const TagFooter = styled.footer`
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 20px;
+    padding: 40px;
     flex-direction: column;
 `
 
@@ -22,7 +22,6 @@ const Title = styled.div`
     margin-bottom:30px;
 
 `
-
 const ShortCuts = styled.div`
     display: flex;
     max-width: 100vw;
@@ -86,7 +85,7 @@ export function Footer(){
                         <SocialIcon url="https://www.instagram.com/leadster.com.br/" bgColor='#f5f5f5' fgColor='#787675'/>
                     </div>
                     <p><strong>E-mail:</strong> contato@leadster.com.br</p>
-                    <p><strong>Telefone:</strong> (42) 98828-9851 </p>
+                    <p><strong>Telefone:</strong>(42) 98828-9851 </p>
                 </div>
             </ShortCuts>
         </TagFooter>
