@@ -1,7 +1,7 @@
 import { styled } from "styled-components"
 import { FilterSection } from "./filter-section"
 import info from '@/components/data.json'
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect} from "react"
 import { FilterContext } from "@/contexts/FilterContext"
 
 interface DataProps{

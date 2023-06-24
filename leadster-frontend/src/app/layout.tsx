@@ -1,5 +1,4 @@
 import './globals.css'
-import { Header } from '@/components/header'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import { DefaultProviders } from '@/components/default-providers'
 
@@ -22,7 +21,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={jakarta.className}>
         <DefaultProviders>
-          <Header/>
           {children}
          </DefaultProviders>
       </body>

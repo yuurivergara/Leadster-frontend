@@ -4,6 +4,7 @@ import { ThirdSection } from '@/components/third-section'
 import { SecondSection } from '@/components/second-section'
 import { styled } from 'styled-components'
 import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
 
 const PageWrapper = styled.main`
   display: flex;
@@ -13,6 +14,7 @@ const PageWrapper = styled.main`
 export default function Home() {
   return (
     <PageWrapper>
+      <Header/>
       <FirstSection/>
       <SecondSection/>
       <ThirdSection/>
