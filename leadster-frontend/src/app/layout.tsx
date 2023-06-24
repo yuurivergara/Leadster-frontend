@@ -1,12 +1,11 @@
-import { Footer } from '@/components/footer'
 import './globals.css'
 import { Header } from '@/components/header'
-import { Plus_Jakarta_Sans} from 'next/font/google'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import { DefaultProviders } from '@/components/default-providers'
 
 const jakarta = Plus_Jakarta_Sans({ 
-  subsets: ['latin'],
-  weight:['200','300', '400','500', '600', '700', '800'] 
+  weight:['200','300', '400','500', '600', '700', '800'],
+  subsets: ['latin']
 })
 
 export const metadata = {
@@ -21,12 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-        
       <body className={jakarta.className}>
         <DefaultProviders>
-        <Header/>
-        {children}
-        <Footer/>
+          <Header/>
+          {children}
          </DefaultProviders>
       </body>
     </html>

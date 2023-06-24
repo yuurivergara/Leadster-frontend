@@ -11,7 +11,7 @@ const TagFooter = styled.footer`
     flex-direction: column;
 `
 
-const Title = styled.section`
+const Title = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,12 +22,12 @@ const Title = styled.section`
     margin-bottom:30px;
 
 `
-const ShortCuts = styled.section`
+const ShortCuts = styled.div`
     display: flex;
     max-width: 100vw;
     gap:150px;
 
-    div {
+    >div {
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -80,7 +80,7 @@ export function Footer(){
                 <div>
                     <h1>Siga a Leadster</h1>
                     <div>
-                        <SocialIcon url="https://www.linkedin.com/company/leadster-platform/" bgColor='#f5f5f5' fgColor='#787675'/>
+                        <SocialIcon className='SocialIcon' url="https://www.linkedin.com/company/leadster-platform/" bgColor='#f5f5f5' fgColor='#787675'/>
                         <SocialIcon url="https://www.facebook.com/leadsterplatform/?locale=pt_BR" bgColor='#f5f5f5' fgColor='#787675'/>
                         <SocialIcon url="https://www.instagram.com/leadster.com.br/" bgColor='#f5f5f5' fgColor='#787675'/>
                     </div>

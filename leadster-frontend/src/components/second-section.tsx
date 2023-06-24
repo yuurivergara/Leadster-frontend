@@ -1,4 +1,3 @@
-'use client'
 import { styled } from "styled-components"
 import { FilterSection } from "./filter-section"
 import info from '@/components/data.json'
@@ -66,7 +65,7 @@ const VideoCard = styled.div`
     box-shadow: var(--platinum) 1px 5px 25px;
     width: 256px;
 
-    div{
+    >div{
         &.image{
             display: flex; 
             background-color: blue;
@@ -93,6 +92,11 @@ const VideoCard = styled.div`
             opacity: 0.6;           
         }
     }
+
+
+    
+
+    
 `
 
 export function SecondSection(){ 
@@ -118,7 +122,8 @@ export function SecondSection(){
             <HorizontalLine />
             <ListContainer>
                 { order == "data" ? currentDataSliceByData?.map((data)=>(
-                <VideoCard key={data.id}>
+                <VideoCard
+                key={data.id}>
                     <div className="image">
                         <img src="/thumbnail.png" width={256} />
                     </div>
@@ -147,8 +152,8 @@ export function SecondSection(){
                 <span>Página</span>
                 {Array.from(Array(pages), (item, index)=>{
                     return ( 
-                    <button 
-                    key={currentData[0].id}
+                    <button
+                    key={currentData[0].id} 
                     className={PageButtonIndex == index ? "pressed" : "nopressed"}
                     value={index} 
                     onClick={()=> {

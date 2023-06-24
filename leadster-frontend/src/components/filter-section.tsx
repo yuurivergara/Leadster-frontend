@@ -1,5 +1,3 @@
-"use client"
-
 import { styled } from "styled-components"
 import { OrderFilter } from "./order-filter"
 import { useContext, useState } from "react"
@@ -10,7 +8,7 @@ const Container = styled.div`
     gap: 15px;
     margin-bottom: 30px;
 `
-const FilterButton = styled.button`
+const Button = styled.button`
 
     &.nopressed{
 
@@ -46,14 +44,14 @@ export function FilterSection(){
     const [index,setIndex] = useState(0)
     return( 
         <Container>
-            <FilterButton 
+            <Button 
             onClick={()=>{
                 setIndex(0)
                 setCategory("agencias")
                 setCurrentPage(0)
                 setPageButtonIndex(0)
-            }} className={index == 0? 'pressed' : 'nopressed'}>Agências</FilterButton>
-            <FilterButton 
+            }} className={index == 0? 'pressed' : 'nopressed'}>Agências</Button>
+            <Button 
             onClick={()=>{
                 setIndex(1)
                 setCategory("chatbot")
@@ -61,8 +59,8 @@ export function FilterSection(){
                 setPageButtonIndex(0)
             }}
             className={index == 1? 'pressed' : 'nopressed'}
-            >Chatbot</FilterButton>
-            <FilterButton 
+            >Chatbot</Button>
+            <Button 
             onClick={()=>{
                 setIndex(2)
                 setCategory("marketing")
@@ -70,8 +68,8 @@ export function FilterSection(){
                 setPageButtonIndex(0)
             }}
             className={index == 2? 'pressed' : 'nopressed'}
-            >Marketing Digital</FilterButton>
-            <FilterButton
+            >Marketing Digital</Button>
+            <Button
             onClick={()=>{
                 setIndex(3)
                 setCategory("leads")
@@ -79,8 +77,8 @@ export function FilterSection(){
                 setPageButtonIndex(0) 
             }}
             className={index == 3? 'pressed' : 'nopressed'}
-            >Geração de Leads</FilterButton>
-            <FilterButton 
+            >Geração de Leads</Button>
+            <Button 
             onClick={()=>{
                 setIndex(4)
                 setCategory("midia")
@@ -88,7 +86,7 @@ export function FilterSection(){
                 setPageButtonIndex(0)
             }}
             className={index == 4? 'pressed' : 'nopressed'}
-            >Mídia Paga</FilterButton>
+            >Mídia Paga</Button>
             <OrderFilter/>
         </Container>
     )
