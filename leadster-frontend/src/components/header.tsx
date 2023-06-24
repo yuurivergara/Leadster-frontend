@@ -1,5 +1,4 @@
 'use client'
-import Image from 'next/image'
 import {styled} from 'styled-components'
 
 const TagHeader = styled.header`
@@ -7,7 +6,7 @@ const TagHeader = styled.header`
     align-items: center;
     justify-content: center;
     height: 80px;
-    width: 100%; 
+    width: 100%;
 `
 
 const Logo = styled.a`

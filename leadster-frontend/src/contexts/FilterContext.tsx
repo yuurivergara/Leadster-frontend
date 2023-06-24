@@ -6,23 +6,29 @@ type FilterContextType = {
   setCategory: (newState: string) => void;
   order:string;
   setOrder: (newState: string) => void;
+  currentPage:number;
+  setCurrentPage: (newState: number) => void;
+  PageButtonIndex:number;
+  setPageButtonIndex: (newState: number) => void;
 }
 
 
 type FilterContextProps = {
-  children: ReactNode
+  children: ReactNode 
 }
 
 export const FilterContext = createContext<FilterContextType>({} as FilterContextType)
 
-export default function FilterProvider  ({children} : FilterContextProps) {
+export function FilterProvider  ({children} : FilterContextProps) {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [PageButtonIndex, setPageButtonIndex] = useState(0)
   const [category, setCategory] = useState("agencias")
   const [order, setOrder]= useState("data")
   
   
   
   return (
-    <FilterContext.Provider value={{ category, setCategory, order, setOrder}}>
+    <FilterContext.Provider value={{ category, setCategory, order, setOrder, currentPage, setCurrentPage, PageButtonIndex, setPageButtonIndex}}>
       {children}
     </FilterContext.Provider>
   )

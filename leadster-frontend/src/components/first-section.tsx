@@ -40,7 +40,7 @@ const HorizontalLine = styled.div`
     border: 0.1px solid var(--platinum);
     width: 100%;
 `
-const Exclusive = styled.div`
+const Exclusive = styled.section`
     display: flex;
     border: 2px solid;
     border-color: var(--steel-blue);
@@ -48,6 +48,7 @@ const Exclusive = styled.div`
     border-radius: 10px 10px 10px 0px;
     align-items: center;
     justify-content: center;
+
     span{
         color: var(--steel-blue);
         font-size: 10px;
@@ -64,7 +65,7 @@ export function FirstSection(){
                 Menos Conversinha,
             </h2>
             <h1>
-                Mais Conversão <img src="/asset-header.png" />
+                Mais Conversão <img src="/asset-header.png" alt='asset'/>
                 <HorizontalLine />  
             </h1>
             <p>Conheça as estratégias que <strong>mudaram o jogo</strong> e como aplicá-las no seu negócio</p>

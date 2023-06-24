@@ -1,3 +1,4 @@
+'use client'
 import { styled } from "styled-components"
 import { FilterSection } from "./filter-section"
 import info from '@/components/data.json'
@@ -5,7 +6,7 @@ import { useContext, useEffect, useState } from "react"
 import { FilterContext } from "@/contexts/FilterContext"
 
 interface DataProps{
-    title:string, views:number, category: string
+    title:string, views:number, category: string, data:number, url:string, id:number
 }
 const TagSection = styled.div`
     display: flex;
@@ -65,7 +66,7 @@ const VideoCard = styled.div`
     box-shadow: var(--platinum) 1px 5px 25px;
     width: 256px;
 
-    >div{
+    div{
         &.image{
             display: flex; 
             background-color: blue;
@@ -92,27 +93,23 @@ const VideoCard = styled.div`
             opacity: 0.6;           
         }
     }
-
-
-    
-
-    
 `
 
 export function SecondSection(){ 
-    const {category,order} = useContext(FilterContext)
+    const {category,order, currentPage, setCurrentPage, PageButtonIndex, setPageButtonIndex} = useContext(FilterContext)
     const data: DataProps[] = info
-    const [currentPage, setCurrentPage] = useState(0);
     const startIndex = currentPage *9; 
     const endIndex = startIndex + 9; 
     const currentData = data.filter((item)=> item.category == category)
-    const currentDataSlice = currentData.slice(startIndex,endIndex)
-    const pages = Math.ceil(currentData.length/9); 
-    const [PageButtonIndex, setPageButtonIndex] = useState(0)
+    const currentDataSliceByViews = currentData.slice(startIndex,endIndex).sort((x,y) => { return x.views - y.views})
     
-    useEffect(()=>{  
-        
+    const currentDataSliceByData = currentData.slice(startIndex,endIndex).sort((x,y) => { return x.data - y.data})
+    const pages = Math.ceil(currentData.length/9); 
+    
+    
+    useEffect(()=>{ 
         setCurrentPage(0);
+        setPageButtonIndex(0)
     },[])
 
     return(
@@ -120,8 +117,8 @@ export function SecondSection(){
             <FilterSection/>
             <HorizontalLine />
             <ListContainer>
-                {currentDataSlice?.map((data)=>(
-                <VideoCard>
+                { order == "data" ? currentDataSliceByData?.map((data)=>(
+                <VideoCard key={data.id}>
                     <div className="image">
                         <img src="/thumbnail.png" width={256} />
                     </div>
@@ -129,9 +126,21 @@ export function SecondSection(){
                     <p>{data.title}</p>
 
                     </div>
-                    
+                     
                 </VideoCard>
-                 ))}
+                 )) : currentDataSliceByViews?.map((data)=>(
+                    <VideoCard 
+                    key={data.id}>
+                        <div className="image">
+                            <img src="/thumbnail.png" width={256} />
+                        </div>
+                        <div className="title">
+                        <p>{data.title}</p>
+    
+                        </div>
+                        
+                    </VideoCard>
+                     ))}
             </ListContainer>
             <HorizontalLine />
             <FilterContainer>
@@ -139,6 +148,7 @@ export function SecondSection(){
                 {Array.from(Array(pages), (item, index)=>{
                     return ( 
                     <button 
+                    key={currentData[0].id}
                     className={PageButtonIndex == index ? "pressed" : "nopressed"}
                     value={index} 
                     onClick={()=> {
