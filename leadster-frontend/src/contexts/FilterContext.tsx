@@ -10,6 +10,12 @@ type FilterContextType = {
   setCurrentPage: (newState: number) => void;
   PageButtonIndex:number;
   setPageButtonIndex: (newState: number) => void;
+  isOpen: boolean;
+  setIsOpen: (newState: boolean)=> void;
+  currentTitle: string;
+  setCurrentTitle:(newState: string) => void;
+  currentUrl: string;
+  setCurrentUrl:(newState: string) => void;
 }
 
 
@@ -24,11 +30,14 @@ export function FilterProvider  ({children} : FilterContextProps) {
   const [PageButtonIndex, setPageButtonIndex] = useState(0)
   const [category, setCategory] = useState("agencias")
   const [order, setOrder]= useState("data")
+  const [isOpen, setIsOpen] = useState(false)
+  const [currentTitle, setCurrentTitle]= useState("")
+const [currentUrl, setCurrentUrl]= useState("")
   
   
   
   return (
-    <FilterContext.Provider value={{ category, setCategory, order, setOrder, currentPage, setCurrentPage, PageButtonIndex, setPageButtonIndex}}>
+    <FilterContext.Provider value={{ category, setCategory, order, setOrder, currentPage, setCurrentPage, PageButtonIndex, setPageButtonIndex, isOpen, setIsOpen, currentTitle, setCurrentTitle, currentUrl, setCurrentUrl}}>
       {children}
     </FilterContext.Provider>
   )

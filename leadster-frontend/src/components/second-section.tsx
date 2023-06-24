@@ -1,7 +1,7 @@
 import { styled } from "styled-components"
 import { FilterSection } from "./filter-section"
 import info from '@/components/data.json'
-import { useContext, useEffect} from "react"
+import { useContext, useEffect, useState} from "react"
 import { FilterContext } from "@/contexts/FilterContext"
 
 interface DataProps{
@@ -92,15 +92,13 @@ const VideoCard = styled.div`
             opacity: 0.6;           
         }
     }
-
-
-    
-
     
 `
 
+
+
 export function SecondSection(){ 
-    const {category,order, currentPage, setCurrentPage, PageButtonIndex, setPageButtonIndex} = useContext(FilterContext)
+    const {category,order, currentPage, isOpen,setCurrentPage, PageButtonIndex, setPageButtonIndex, setIsOpen, setCurrentTitle, setCurrentUrl} = useContext(FilterContext)
     const data: DataProps[] = info
     const startIndex = currentPage *9; 
     const endIndex = startIndex + 9; 
@@ -123,7 +121,13 @@ export function SecondSection(){
             <ListContainer>
                 { order == "data" ? currentDataSliceByData?.map((data)=>(
                 <VideoCard
-                key={data.id}>
+                    onClick={()=> {
+                        setCurrentTitle(data.title)
+                       setCurrentUrl(data.url)
+                        setIsOpen(!isOpen)
+                    }
+                        }
+                     key={data.id}>
                     <div className="image">
                         <img src="/thumbnail.png" width={256} />
                     </div>
@@ -135,6 +139,11 @@ export function SecondSection(){
                 </VideoCard>
                  )) : currentDataSliceByViews?.map((data)=>(
                     <VideoCard 
+                    onClick={()=>{
+                        setCurrentTitle(data.title)
+                       setCurrentUrl(data.url)
+                        setIsOpen(!isOpen)
+                    }}
                     key={data.id}>
                         <div className="image">
                             <img src="/thumbnail.png" width={256} />
@@ -146,6 +155,8 @@ export function SecondSection(){
                         
                     </VideoCard>
                      ))}
+
+                     
             </ListContainer>
             <HorizontalLine />
             <FilterContainer>
@@ -163,7 +174,6 @@ export function SecondSection(){
                 })}
             </FilterContainer>
 
-            
             
         </TagSection>
     )
