@@ -9,15 +9,14 @@ import { SecondSection } from '@/components/second-section'
 const PageWrapper = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100%;
   `
 
 export default function Home() {
   return (
     <PageWrapper>
-      <FirstSection />
-      <SecondSection />
-      <ThirdSection />
+      <FirstSection/>
+      <SecondSection/>
+      <ThirdSection/>
     </PageWrapper>
   )
 }

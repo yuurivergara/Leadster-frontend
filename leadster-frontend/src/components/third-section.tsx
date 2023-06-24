@@ -48,7 +48,7 @@ const TextSection = styled.div`
 
     >div{
         display: flex;
-        height: 30px ;
+        height: 30px;
         gap: 20px;
        
         >button{
