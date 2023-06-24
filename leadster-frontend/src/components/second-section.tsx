@@ -99,29 +99,28 @@ const VideoCard = styled.div`
     
 `
 
-export function SecondSection(){
-    const data: DataProps[] = info
+export function SecondSection(){ 
     const {category,order} = useContext(FilterContext)
+    const data: DataProps[] = info
     const [currentPage, setCurrentPage] = useState(0);
-    const startIndex = currentPage *9;
-    const endIndex = startIndex + 9;
-    const pages = Math.ceil(data.length/9);
-    const currentData = data.slice(startIndex, endIndex).filter((item)=> item.category == category)
+    const startIndex = currentPage *9; 
+    const endIndex = startIndex + 9; 
+    const currentData = data.filter((item)=> item.category == category)
+    const currentDataSlice = currentData.slice(startIndex,endIndex)
+    const pages = Math.ceil(currentData.length/9); 
     const [PageButtonIndex, setPageButtonIndex] = useState(0)
     
-    useEffect(()=>{ 
-        if (currentData){
-            console.log("AQQ",currentData.filter((item)=> item.category == "agencias"))
-        }
+    useEffect(()=>{  
+        
         setCurrentPage(0);
-    },[currentData])
+    },[])
 
     return(
         <TagSection>
             <FilterSection/>
             <HorizontalLine />
             <ListContainer>
-                {currentData?.map((data)=>(
+                {currentDataSlice?.map((data)=>(
                 <VideoCard>
                     <div className="image">
                         <img src="/thumbnail.png" width={256} />

@@ -6,7 +6,7 @@ const TagFooter = styled.footer`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 100%; 
     padding: 40px;
     flex-direction: column;
 `

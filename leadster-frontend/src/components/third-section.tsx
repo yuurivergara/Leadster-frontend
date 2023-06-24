@@ -42,13 +42,13 @@ const TextSection = styled.div`
 
     >p{
         color:#1D3C51;
-        font-size: 12px;
+        font-size: 12px; 
         font-weight: 600;
     }
 
-    >div{
+    >div{ 
         display: flex; 
-        height: 30px;
+        height: 30px; 
         gap: 20px;
        
         >button{

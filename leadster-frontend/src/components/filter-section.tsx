@@ -1,6 +1,7 @@
 import { styled } from "styled-components"
 import { OrderFilter } from "./order-filter"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { FilterContext } from "@/contexts/FilterContext"
 
 const Container = styled.div`
     display: flex;
@@ -39,34 +40,40 @@ const Button = styled.button`
 `
 
 export function FilterSection(){
+    const {setCategory} = useContext(FilterContext)
     const [index,setIndex] = useState(0)
-    return(
+    return( 
         <Container>
             <Button 
             onClick={()=>{
                 setIndex(0)
+                setCategory("agencias")
             }} className={index == 0? 'pressed' : 'nopressed'}>Agências</Button>
             <Button 
             onClick={()=>{
                 setIndex(1)
+                setCategory("chatbot")
             }}
             className={index == 1? 'pressed' : 'nopressed'}
             >Chatbot</Button>
             <Button 
             onClick={()=>{
                 setIndex(2)
+                setCategory("marketing")
             }}
             className={index == 2? 'pressed' : 'nopressed'}
             >Marketing Digital</Button>
             <Button 
             onClick={()=>{
                 setIndex(3)
+                setCategory("leads")
             }}
             className={index == 3? 'pressed' : 'nopressed'}
             >Geração de Leads</Button>
             <Button 
             onClick={()=>{
                 setIndex(4)
+                setCategory("midia")
             }}
             className={index == 4? 'pressed' : 'nopressed'}
             >Mídia Paga</Button>

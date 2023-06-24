@@ -36,7 +36,7 @@ const FilterContainer = styled.div`
             }
         }
 
-        svg { 
+        svg {
             margin-left: 16px;
         }
     }

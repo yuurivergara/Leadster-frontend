@@ -1,4 +1,5 @@
-import React,{ReactNode, createContext, useEffect, useState} from "react";
+'use client'
+import {ReactNode, createContext, useState} from "react";
 
 type FilterContextType = {
   category: string;
