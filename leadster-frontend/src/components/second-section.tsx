@@ -1,7 +1,8 @@
 import { styled } from "styled-components"
 import { FilterSection } from "./filter-section"
 import info from '@/components/data.json'
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { FilterContext } from "@/contexts/FilterContext"
 
 interface DataProps{
     title:string, views:number, category: string
@@ -21,16 +22,23 @@ const FilterContainer = styled.div`
     justify-content: center;
     margin-top: 24px;
     button{
-        background-color: transparent;
-        border: none;
-        font-weight: 500;
-        font-family: inherit;
-        width: 20px;
-
-        &:hover,&:focus{
-            border: 1px solid blue;
+        &.nopressed{
+            background-color: transparent;
+            font-weight: 500;
+            font-family: inherit;
+            width: 20px;
+            border: none;
+        } 
+        
+        
+        &.pressed{
+            font-weight: 500;
+            font-family: inherit;
+            width: 20px;
+            background-color: transparent;
+            border: 1px solid var(--dodger-blue);
             border-radius: 5px;
-            color: blue;
+            color: var(--dodger-blue);
         }
 
     }
@@ -70,6 +78,9 @@ const VideoCard = styled.div`
             flex: 1;
             align-items: center;
             padding: 10px 20px;
+            font-family: inherit;
+            font-weight: 600;
+            color: #1D3C51;
         }
     }
 
@@ -90,19 +101,27 @@ const VideoCard = styled.div`
 
 export function SecondSection(){
     const data: DataProps[] = info
+    const {category,order} = useContext(FilterContext)
     const [currentPage, setCurrentPage] = useState(0);
     const startIndex = currentPage *9;
     const endIndex = startIndex + 9;
     const pages = Math.ceil(data.length/9);
-    const [category, setCategory] = useState("agencias")
-    const currentData = data.slice(startIndex, endIndex)
+    const currentData = data.slice(startIndex, endIndex).filter((item)=> item.category == category)
+    const [PageButtonIndex, setPageButtonIndex] = useState(0)
+    
+    useEffect(()=>{ 
+        if (currentData){
+            console.log("AQQ",currentData.filter((item)=> item.category == "agencias"))
+        }
+        setCurrentPage(0);
+    },[currentData])
 
     return(
         <TagSection>
             <FilterSection/>
             <HorizontalLine />
             <ListContainer>
-                {currentData.map((data)=>(
+                {currentData?.map((data)=>(
                 <VideoCard>
                     <div className="image">
                         <img src="/thumbnail.png" width={256} />
@@ -119,8 +138,14 @@ export function SecondSection(){
             <FilterContainer>
                 <span>Página</span>
                 {Array.from(Array(pages), (item, index)=>{
-                    return (
-                    <button value={index} onClick={()=> setCurrentPage(index)}>{index +1}</button>)
+                    return ( 
+                    <button 
+                    className={PageButtonIndex == index ? "pressed" : "nopressed"}
+                    value={index} 
+                    onClick={()=> {
+                        setCurrentPage(index)
+                        setPageButtonIndex(index)
+                    }}>{index}</button>)
                 })}
             </FilterContainer>
 

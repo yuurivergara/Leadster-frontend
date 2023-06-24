@@ -47,7 +47,7 @@ const TextSection = styled.div`
     }
 
     >div{
-        display: flex;
+        display: flex; 
         height: 30px;
         gap: 20px;
        

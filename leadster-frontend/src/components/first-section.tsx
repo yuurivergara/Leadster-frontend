@@ -8,7 +8,7 @@ const TagSection = styled.div`
     align-items: center;
     justify-content: center;
     background-color: var(--alice-blue-2);
-    height: 400px;
+    height: 400px; 
 
     h2{
         font-weight: 500;

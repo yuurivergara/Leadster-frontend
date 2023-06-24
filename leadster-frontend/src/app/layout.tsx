@@ -2,6 +2,7 @@ import { Footer } from '@/components/footer'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Plus_Jakarta_Sans} from 'next/font/google'
+import FilterProvider, { FilterContext } from '@/contexts/FilterContext'
 
 const jakarta = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
@@ -20,11 +21,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <FilterProvider>
+        
       <body className={jakarta.className}>
         <Header />
         {children}
         <Footer />
       </body>
+      </FilterProvider>
     </html>
   )
 }
