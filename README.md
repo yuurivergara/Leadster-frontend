@@ -13,6 +13,8 @@ The challenge is to implement a video collection following functionalities:
 
 - [x] Video catalog with pagination
 - [x] Filter videos by category
+- [x] Create a JSON file with database videos configuration
+- [x] Responsiveness
 
 ## 📋 Requirements
 
