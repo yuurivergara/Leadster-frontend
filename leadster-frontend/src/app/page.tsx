@@ -33,8 +33,7 @@ const VideoSection = styled.section`
   flex-direction: column;
   align-items: center;
   border-radius: 24px;
-  border-top-color: aliceblue;
-  border-width: 1;
+  border-top: 6px solid var(--dodger-blue);
 
   h1{
     font-family: inherit;
