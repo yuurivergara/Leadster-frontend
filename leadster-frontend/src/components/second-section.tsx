@@ -107,11 +107,6 @@ export function SecondSection(){
     const currentDataSliceByViews = currentData.slice(startIndex,endIndex).sort((x,y) => { return x.views - y.views})
     const currentDataSliceByData = currentData.slice(startIndex,endIndex).sort((x,y) => { return x.data - y.data})
     
-    
-    // useEffect(()=>{ 
-    //     setCurrentPage(0);
-    //     setPageButtonIndex(0);
-    // },[])
 
     return(
         <TagSection>
