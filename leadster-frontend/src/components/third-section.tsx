@@ -2,28 +2,22 @@ import { styled } from "styled-components"
 
 const TagSection = styled.div`
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     background-color: var(--alice-blue-2);
-    height: 400px;
+    padding: 50px 100px;   
     width: 100%;
-    gap: 150px;
-    padding: 150px;
-
-    >img{
-        width: 400px;
-        height: 400px;
-        flex: 1;
-    }
-
+    justify-content: space-between;
     
+    @media(max-width: 800px){
+        flex-direction: column;
+    }
 `
 
 const TextSection = styled.div`
     display: flex;
     flex-direction: column; 
     gap: 15px; 
+    width: 400px;
     >span{
         border: 1px solid var(--platinum);
         width: 100%;
@@ -74,7 +68,7 @@ const TextSection = styled.div`
 export function ThirdSection(){
     return(
         <TagSection>
-            <img src="/comparativo_img_CTA.png" />
+            <img src="/comparativo_img_CTA.png" width={400} height={400} />
             <TextSection>
                 <h1>Pronto para triplicar sua <strong>Geração de Leads?</strong></h1>
                 <h3>Criação e ativação em <strong>4 minutos</strong>.</h3>

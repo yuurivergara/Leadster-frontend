@@ -6,19 +6,31 @@ import { FilterContext } from "@/contexts/FilterContext"
 const Container = styled.div`
     display: flex;
     gap: 15px;
+    width: 100%;
     margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 968px) {
+        flex-direction: column;
+    }
+`
+
+const CategoryButton = styled.div`
+    display: flex;
+    gap:20px
 `
 const Button = styled.button`
 
-    &.nopressed{
 
-        border: 0.1em solid #1D3C51;
-        border-radius: 50px; 
-        padding: 5px 10px;
-        background-color: transparent;
-        font-size: 12px;
-        color: #1D3C51;
-        font-weight: 500;
+&.nopressed{
+    
+    border: 0.1em solid #1D3C51;
+    border-radius: 50px; 
+    padding: 5px 10px;
+    background-color: transparent;
+    font-size: 12px;
+    color: #1D3C51;
         cursor: pointer;
         font-weight: 600;
         &:hover{
@@ -26,7 +38,7 @@ const Button = styled.button`
             color: var(--dodger-blue);
         }
     }
-
+    
     &.pressed{
         background-color: var(--dodger-blue);
         border: none;
@@ -34,7 +46,18 @@ const Button = styled.button`
         border-radius: 50px;
         padding: 5px 10px;
     }
-
+    
+    @media(max-width: 968px){
+        &.nopressed{
+            font-size: 10px;
+        }
+        
+        &.pressed{
+            font-size: 10px;
+            padding-inline-start: 2px 5px;
+            border-radius: 20px;
+        }
+    }
 
 
 `
@@ -44,6 +67,8 @@ export function FilterSection(){
     const [index,setIndex] = useState(0)
     return( 
         <Container>
+            <CategoryButton>
+
             <Button 
             onClick={()=>{
                 setIndex(0)
@@ -87,6 +112,8 @@ export function FilterSection(){
             }}
             className={index == 4? 'pressed' : 'nopressed'}
             >Mídia Paga</Button>
+            </CategoryButton>
+
             <OrderFilter/>
         </Container>
     )

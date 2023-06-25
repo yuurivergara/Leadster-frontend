@@ -44,6 +44,10 @@ const VideoSection = styled.section`
       color: var(--dodger-blue);
     }
   }
+
+  @media(max-width: 1200px){
+    width: 80%;
+  }
 `
 
 const XButton = styled.button`
@@ -53,6 +57,11 @@ const XButton = styled.button`
   position: absolute;
   right: 35%;
   top: 5%;
+
+  @media (max-width: 1200px){
+        right: 15%;
+        top:6%
+    }
 `
 const HorizontalLine = styled.div`
     border: 1px solid var(--platinum);
@@ -63,8 +72,13 @@ const HorizontalLine = styled.div`
 const IconSection = styled.section`
   display: flex;
   gap: 10px;
+  width: 100%;
 
+  
   button{
+    @media (max-width: 968px){
+        font-size: 10px;
+    }
     display: flex;
     opacity: 0.6;
     border: none;
@@ -111,6 +125,7 @@ padding: 20px;
 font-family: inherit;
 font-weight: 600;
 color: #1D3C51;
+width: 100%;
   h2{
     font-family: inherit;
     font-size: 14px;

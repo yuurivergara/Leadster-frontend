@@ -10,6 +10,8 @@ const TagSection = styled.div`
     background-color: var(--alice-blue-2);
     height: 400px;
 
+    
+
     h2{
         font-weight: 500;
         font-size: 40px;
@@ -34,6 +36,18 @@ const TagSection = styled.div`
         font-weight: 600;
     }
 
+    @media (max-width: 968px) {
+    h2{
+        font-size: 30px;
+    }
+
+    h1{
+        font-size: 50px;
+    }
+    p{
+        font-size: 10px;
+    }
+    }   
 `
 
 const HorizontalLine = styled.div`

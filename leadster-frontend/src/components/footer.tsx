@@ -9,6 +9,8 @@ const TagFooter = styled.footer`
     width: 100%;
     padding: 40px;
     flex-direction: column;
+
+    
 `
 
 const Title = styled.div`
@@ -26,6 +28,10 @@ const ShortCuts = styled.div`
     display: flex;
     max-width: 100vw;
     gap:150px;
+
+    @media(max-width: 800px){
+        flex-direction: column;
+    }
 
     >div {
         display: flex;
