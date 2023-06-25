@@ -21,7 +21,7 @@ const FilterContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 24px;
-    button{
+    >button{
         &.nopressed{
             background-color: transparent;
             font-weight: 500;
@@ -103,16 +103,15 @@ export function SecondSection(){
     const startIndex = currentPage *9; 
     const endIndex = startIndex + 9; 
     const currentData = data.filter((item)=> item.category == category)
-    const currentDataSliceByViews = currentData.slice(startIndex,endIndex).sort((x,y) => { return x.views - y.views})
-    
-    const currentDataSliceByData = currentData.slice(startIndex,endIndex).sort((x,y) => { return x.data - y.data})
     const pages = Math.ceil(currentData.length/9); 
+    const currentDataSliceByViews = currentData.slice(startIndex,endIndex).sort((x,y) => { return x.views - y.views})
+    const currentDataSliceByData = currentData.slice(startIndex,endIndex).sort((x,y) => { return x.data - y.data})
     
     
-    useEffect(()=>{ 
-        setCurrentPage(0);
-        setPageButtonIndex(0)
-    },[])
+    // useEffect(()=>{ 
+    //     setCurrentPage(0);
+    //     setPageButtonIndex(0);
+    // },[])
 
     return(
         <TagSection>
@@ -164,13 +163,12 @@ export function SecondSection(){
                 {Array.from(Array(pages), (item, index)=>{
                     return ( 
                     <button
-                    key={currentData[0].id} 
                     className={PageButtonIndex == index ? "pressed" : "nopressed"}
                     value={index} 
                     onClick={()=> {
                         setCurrentPage(index)
                         setPageButtonIndex(index)
-                    }}>{index}</button>)
+                    }}>{index+1}</button>)
                 })}
             </FilterContainer>
 
